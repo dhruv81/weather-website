@@ -11,9 +11,10 @@ const forecast = (latitude,longitude,callback)=>{
                 }else if(body.error){
                      console.log('unable to find location')
                 }else{
+                    console.log(body.current)
                     const temperature = Math.round((body.current.temperature - 32) * 5/9) 
                     const feelslike = Math.round((body.current.feelslike - 32) * 5/9)
-            callback(undefined,temperature + ' Temprature ' + feelslike + ' Feelling like.'+ body.location.localtime)
+            callback(undefined,'It is Currently ' + temperature + ' degree out. It fill like '+ feelslike + ' degree out.' +body.location.localtime)
         }
     })
 
